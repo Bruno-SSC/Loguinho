@@ -1,10 +1,30 @@
-import { MongoClient } from 'mongodb'
-const cliente = MongoClient
+import { MongoClient } from "mongodb"
+// importa um objeto com um metodo para conectar no mongoDB
 
-export function getConn() {
-    cliente.connect("mongodb://localhost")
-        .then((conn) => { return conn.db("clients") })
-        .catch(err => { console.log(err) })
 
-    // o catch recebe promises que deram errado e trata automaticamente
+export function getConn(dbname, URL) {
+    MongoClient.connect(URL, (err, db) => {
+        var db = db.db(`${dbname}`)
+    })
+}
+
+export function insert(db, data) {
+    try {
+        db.collection("customers").insertMany(data, (err, res) => {
+            console.log("Number of documents inserted: " + res.insertedCount)
+        })
+    }
+    catch
+    {
+        db.createCollection("customers", () => {
+            console.log("colection criada")
+            insert(db, data)
+        })
+    }
+}
+
+export function find(db) {
+    db.collection("customers").find({}).toArray((err, result) => {
+        console.log(result)
+    })
 }
