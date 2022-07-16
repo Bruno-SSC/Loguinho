@@ -2,7 +2,7 @@
 
 ## Front
 
-O front-end desse sistema foi desenvolvido através do seguinte tutorial: [Vídeo do YT](https://youtu.be/69-WfrVBli8).
+O front-end desse sistema foi desenvolvido através do seguinte tutorial: [Markzuel](https://youtu.be/69-WfrVBli8).
 
 ## Objetivos
 
