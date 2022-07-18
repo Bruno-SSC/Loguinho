@@ -1,12 +1,28 @@
 import * as db from './db.mjs';
 
-// aqui guarda os dados de cadastro
-var custArray =
-    [
-        { "nome": "leo", "senha": 54321 },
-        { "nome": "ana", "senha": 23144 },
-        { "nome": "giovana", "senha": 15124 }
-    ]
+export function login(user, password) {
 
+    var data = {
+        "operation": "find",
+        "info": {
+            "user": user,
+            "senha": password
+        }
+    }
 
-db.getConn("loginDB", "mongodb://localhost")
+    db.crud(data)
+
+}
+export function registro(user, password) {
+
+    var data = {
+        "operation": "insert",
+        "info": {
+            "user": user,
+            "senha": password
+        }
+    }
+
+    db.crud(data)
+
+}
