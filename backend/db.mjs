@@ -8,6 +8,7 @@ export function getConn(dbname, URL) {
     })
 }
 
+
 export function insert(db, data) {
     try {
         db.collection("customers").insertMany(data, (err, res) => {
@@ -16,7 +17,7 @@ export function insert(db, data) {
     }
     catch
     {
-        db.createCollection("customers", () => {
+        db.createCollection("customers", (err, res) => {
             console.log("colection criada")
             insert(db, data)
         })

@@ -7,3 +7,6 @@ var custArray =
         { "nome": "ana", "senha": 23144 },
         { "nome": "giovana", "senha": 15124 }
     ]
+
+
+db.getConn("loginDB", "mongodb://localhost")
